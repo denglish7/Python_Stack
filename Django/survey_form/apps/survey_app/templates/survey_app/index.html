@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+        <title>Survey Form</title>
+        {% load staticfiles %}
+
+        <link rel="stylesheet" href="{% static 'survey_app/css/styles.css' %}"media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <div class="wrapper">
+            <form class="" action="process" method="POST">
+                {% csrf_token %}
+                Your Name:<input type="text" name="name" value="">
+                <div class="categories">
+                    <p>Dojo Location:</p>
+                    <select class="" name="location">
+                        <option value="Seattle">Seattle</option>
+                        <option value="Silicon Valley">Silicon Valley</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Dallas">Dallas</option>
+                        <option value="Washington DC">Washington DC</option>
+                        <option value="Chicago">Chicago</option>
+                    </select>
+                </div>
+                <div class="categories">
+                    <p>Favorite Language:</p>
+                    <select class="" name="language" value="">
+                        <option value="SQL">SQL</option>
+                        <option value="Java">Java</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="C#">C#</option>
+                        <option value="Python">Python</option>
+                        <option value="C++">C++</option>
+                        <option value="PHP">PHP</option>
+                        <option value="IOS">IOS</option>
+                        <option value="RUBY">RUBY</option>
+                    </select>
+                </div>
+                Comments (optional):<textarea name="comments" ></textarea>
+                <input type="submit" name="button" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>

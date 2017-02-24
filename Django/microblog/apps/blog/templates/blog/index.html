@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Microblog</title>
+    <!-- <link rel="stylesheet" type="text/css" href=""> -->
+  </head>
+
+  <body>
+    <form action="process" method="post">
+      {% csrf_token %}
+
+      Name: <input type="text" name="name">
+      Blog: <textarea name="blog" rows="8" cols="40"></textarea>
+      <input type="submit" label="Submit">
+
+    </form>
+
+    <h1>Previous blogs</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Blog</th>
+        <th>Blog created</th>
+      </tr> 
+
+      {% for blog in blog %}
+      <tr>
+        <th>{{blog.name}}</th>
+        <th>{{blog.blog}}</th>
+        <th>{{blog.created_at}}</th>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

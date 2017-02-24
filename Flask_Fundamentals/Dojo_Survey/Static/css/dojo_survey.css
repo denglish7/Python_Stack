@@ -1,0 +1,11 @@
+form {
+    text-align: left;
+    border: 1px solid black;
+    width: 50%;
+    height: 50%;
+    margin-left: 100px;
+    padding: 50px;
+}
+select {
+    margin: 10px;
+}

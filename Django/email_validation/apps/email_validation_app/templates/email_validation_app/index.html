@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="wrapper">
+
+			{% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    				<p>{{message}}</p>
+                {% endif %}
+            {% endfor %}
+    		
+            <form action="process" method='POST'>
+                {% csrf_token %}
+                Email Address:<input type="text" name='email_address' value="">
+                <input type="submit" name="button" value="submit">
+            </form>
+        </div>
+    </body>
+</html>

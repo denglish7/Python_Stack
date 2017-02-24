@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Dojo Survey Index</title>
+        <pnk rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dojo_survey_results.css') }}">
+        <style media="screen">
+        .wrapper {
+            margin: auto;
+            text-align: center;
+        }
+
+        .menu {
+            vertical-align: top;
+            display: inline-block;
+            width: 200px;
+        }
+        .input {
+            vertical-align: top;
+            display: inline-block;
+            width: 200px;
+        }
+        form {
+            text-align: left;
+        }
+        p {
+            width: 200px;
+        }
+        h1 {
+            color: red;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h2>Submitted Info</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <h1>{{message}}</h1>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="menu">
+
+                <p>Name:</p>
+                <p>Dojo Location:</p>
+                <p>Favorite Language:</p>
+                <p>Comment:</p>
+            </div>
+            <div class="input">
+                <p>{{ request.form['name'] }}</p>
+                <p>{{ request.form['dojo_location'] }}</p>
+                <p>{{ request.form['favorite_language'] }}</p>
+                <p>{{ request.form['comments'] }}</p>
+            </div>
+            <form action='/reset' method='GET'>
+                <input type='submit' name = 'button' value='Go back'>
+            </form>
+        </div>
+    </body>
+</html>

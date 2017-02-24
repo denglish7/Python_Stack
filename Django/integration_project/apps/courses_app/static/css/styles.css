@@ -1,0 +1,11 @@
+input {
+    display: inline-block;
+    margin-left: 0;
+}
+
+.name {
+    display: block;
+}
+.description {
+    display: block;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+        <title></title>
+    <style>
+        form {
+            display: inline-block;
+        }
+        a {
+            display: inline-block;
+        }
+        table {
+            width: 40%;
+            text-align: center;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Products</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+                {% for product in products %}
+                <tr>
+                    <td>{{product.name}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.price}}</td>
+                    <td>
+                        <a href="{% url 'my_show' id=product.id %}">Show</a>
+                        <a href="{% url 'my_edit' id=product.id %}">Edit</a>
+                        <form class="" action="{% url 'my_destroy' id=product.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Remove">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <a href="{% url 'my_new' %}">Add a new Product</a>
+        </div>
+    </body>
+</html>

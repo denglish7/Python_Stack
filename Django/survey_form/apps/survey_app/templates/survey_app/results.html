@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+        <title>Submitted Information</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div>
+                <p>Thanks for submitting this form! You have submitted this form {{request.session.counter}} times now.</p>
+            </div>
+            <div>
+            <h1>Submitted Information</h1>
+
+            <p>Name: {{request.session.username}}</p>
+            <p>Dojo Location: {{request.session.dojo_location}}</p>
+            <p>Favorite Language: {{request.session.favorite_language}}</p>
+            <p>Comment: {{request.session.comments}}</p>
+            <form action='/' method='GET'>
+                {% csrf_token %}
+                <input type='submit' name = 'button' value='go_back'>
+            </form>
+            </div>
+        </div>
+    </body>
+</html>

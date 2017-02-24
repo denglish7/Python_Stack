@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Counter</h1>
+            <p>
+                {{session['counter']}}
+            </p>
+            <form class="" action="/reset" method="post">
+                <input type='submit' name = 'button' value='Reset'>
+            </form>
+            <form class="" action="/plusTwo" method="post">
+                <input type="submit" name="name" value="+2">
+            </form>
+        </div>
+    </body>
+</html>

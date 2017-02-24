@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Edit Product</h1>
+            <form class="" action="{%url 'my_update' id=product.id %}" method="post">
+                {% csrf_token %}
+                Name<input type="text" name="name" value="">
+                Description<input type="text" name="description" value="">
+                Price<input type="text" name="price" value="">
+                <input type="submit" value="Update">
+            </form>
+            <a href="{% url 'my_index' %}">Back</a>
+            <a href="{% url 'my_show' id=product.id %}">Show</a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+        <title>The Wall</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <form class="" action="process" method="POST">
+                {% csrf_token %}
+                comment<input type="text" name="comment">
+                <input type="submit" value="">
+            </form>
+            <form class="" action="reset" method="post">
+                {% csrf_token %}
+                <input type="submit" name="name" value="">
+            </form>
+            {% if request.session.commentLog %}
+            <p>{{ request.session.commentLog }}</p>
+            {% endif %}
+
+        </div>
+    </body>
+</html>

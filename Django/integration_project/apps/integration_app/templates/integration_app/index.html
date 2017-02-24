@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+        <title>Multiple Apps</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <div class="wrapper">
+            <a href="courses/">Add New Course</a>
+            <a href="login_reg/">Add New User</a>
+            <form class="" action="add_user" method="post">
+            {% csrf_token %}
+                <select name="myuser" value="Users">
+                {% for user in user_id %}
+                    <option value="{{ user.id }}">{{user.first_name}} {{user.last_name}}</option>
+                {% endfor %}
+                </select>
+                <select name="mycourse">
+                {% for course in course_id %}
+                    <option value="{{ course.id }}">{{course.name}}</option>
+                {% endfor %}
+                </select>
+                <input type="submit" name="name" value="Add User To Course">
+            </form>
+            <table>
+                <tr>
+                    <th>Course Number</th>
+                    <th>Title</th>
+                    <th>Number of Users</th>
+                </tr>
+                {% for course in courses %}
+                <tr>
+                    <td>{{course.id}}</td>
+                    <td>{{course.name}}</td>
+                    <td>{{course.student.count}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>
